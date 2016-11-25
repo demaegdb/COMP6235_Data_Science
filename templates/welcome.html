@@ -7,8 +7,23 @@
     <title>{{ titre }}</title>
   </head>
 
-  <body>
-    <h1>{{ titre }}</h1>
-    </body>
+  <body onload="initViz();">
+    
+    <h1> {{ titre }}</h1>
+
+      <div id="vizContainer"></div>
+
+    <script src="https://public.tableau.com/javascripts/api/tableau-2.js"></script>
+    <script type="text/javascript">
+
+      function initViz() {
+        var containerDiv = document.getElementById("vizContainer"),
+            url = "https://public.tableau.com/views/test3_93/Tableaudebord1?:embed=y&:display_count=yes"
+
+        var viz = new tableau.Viz(containerDiv, url)
+      }
+
+    </script>
+  </body>
 
 </html>
