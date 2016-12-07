@@ -7,33 +7,33 @@ from flask.ext.pymongo import PyMongo
 
 app = Flask(__name__)
 
-app.config['MONGO_DBNAME'] = 'test'
-app.config['MONGO_URI'] = 'mongodb://localhost:27017/test'
+app.config['MONGO_DBNAME'] = 'data_science'
+app.config['MONGO_URI'] = 'mongodb://localhost:27017/data_science'
 
 # connect to MongoDB with the defaults
 mongo = PyMongo(app)
 
-# Welcome page (example)
+# main page
 @app.route('/')
-def welcome():
-	return render_template('welcome.html', titre = "Welcome !")
+def main():
+	return render_template('index.html', titre = "Welcome !")
 
 # get all restaurants
-@app.route('/restaurants', methods=['GET'])
+@app.route('/api/restaurants', methods=['GET'])
 def get_all_restaurants():
 	restaurant = mongo.db.restaurants
 	output = []
 	for r in restaurant.find():
-		output.append({'name' : r['name'], "cuisine" : r['cuisine'], "id" : r['restaurant_id']})
+		output.append({"name" : r["BusinessName"], "FHRSID" : r["FHRSID"], "city" : r["AddressLine2"], "latitude" : r["geocode"]["latitude"], "longitude" : r["geocode"]["longitude"]})
 	return jsonify({"result" : output})
 
 # get one restaurant using its id
-@app.route('/restaurants/<id>', methods=['GET'])
+@app.route('/api/restaurants/<int:id>', methods=['GET'])
 def get_one_restaurants(id):
 	restaurant = mongo.db.restaurants
 	output = []
-	r = restaurant.find_one_or_404({'restaurant_id' : str(id) })
-	output.append({'name' : r['name'], "cuisine" : r['cuisine'], "id" : r['restaurant_id']})
+	r = restaurant.find_one_or_404({"FHRSID" : id })
+	output.append({'name' : r['BusinessName'], "city" : r['AddressLine2'], "latitude" : r['geocode']['latitude'], "longitude" : r['geocode']['longitude']})
 	return jsonify({"result" : output})
 
 
