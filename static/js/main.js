@@ -12,18 +12,17 @@
     // Map
     myMap = new Map('map', {
       center: [ -1.404351 , 50.909698 ],
-      zoom:   12
+      zoom:   13
     })
 
     // Plot
     d3.json('http://localhost:5000/api/restaurants', function (collection) {
       
       myMap.points({
-          fillColor:   "red",
+          fillColor: "#0000ff",
           strokeWidth: 1,
+          strokeColor: '#0000ff',
           pointRadius: 2,
-          rotation: 0,
-          graphicName: "square"
       },collection)
     
     })

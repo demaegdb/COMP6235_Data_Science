@@ -109,14 +109,12 @@
       collection.forEach(function(d, i) {
         var
         coords  = d.geometry.coordinates,
-        feature = new ol.Feature.Vector(new ol.Geometry.Point(coords[0], coords[1])
-                                        .transform(projs[1], projs[0]), d.properties)
+        feature = new ol.Feature.Vector(new ol.Geometry.Point(coords[0], coords[1]).transform(projs[1], projs[0]), d.properties)
         feature.style = {
-          fillColor:   opts.color,
+          fillColor:   opts.fillColor,
           strokeWidth: opts.strokeWidth,
+          strokeColor: opts.strokeColor,
           pointRadius: opts.pointRadius,
-          rotation: opts.rotation,
-          graphicName: opts.graphic
         }
 
         features.push(feature)
