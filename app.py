@@ -40,15 +40,16 @@ def get_all_restaurants():
 	restaurants = restaurant.aggregate([
 		{'$project' : {
 			'_id': 0,
-			'FHRSID' : '$FHRSID',
-			'name' : '$BusinessName',
-			'city' : '$AddressLine2',
-  			'geometry.coordinates': ['$geocode.latitude', '$geocode.longitude'] 
+			'properties.FHRSID' : '$FHRSID',
+			'properties.name' : '$BusinessName',
+			'properties.city' : '$AddressLine2',
+  			'geometry.coordinates': ['$geocode.longitude', '$geocode.latitude'] 
 		}}])
 	
 	restaurants = list(restaurants)
 	for r in restaurants:
 		r['geometry']['type'] = 'Point'
+		r['type'] = 'Feature'
 
 	return jsonify(restaurants)
 
@@ -64,7 +65,7 @@ def get_one_restaurants(id):
 			'FHRSID' : '$FHRSID',
 			'name' : '$BusinessName',
 			'city' : '$AddressLine2',
-  			'geometry.coordinates': ['$geocode.latitude', '$geocode.longitude'] 
+  			'geometry.coordinates': ['$geocode.longitude', '$geocode.latitude'] 
 		}}])
 
 	restaurants = list(restaurants)

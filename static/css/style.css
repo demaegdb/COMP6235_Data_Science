@@ -1,0 +1,9 @@
+/***** EDIT THE CSS HERE *****/
+h1 {
+	color: red;
+}
+
+#vizContainer {
+	width: 100%;
+	height: 700px;
+}
