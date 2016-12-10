@@ -10,12 +10,24 @@ with open('config_secret.json') as cred:
     client = Client(auth)
 
 # query
+final_result = []
+
 params = {
-    'term': 'food',
-    'lang': 'fr'
+    'term': 'restaurants',
+    'offset': 0,
 }
 
-# r ->  response
-r = client.search('San Francisco', **params)
+search_results = client.search('Southampton', **params)
+for r in search_results.businesses:
+	final_result.append(r.name)
 
-print(r.businesses)
+
+while search_results and params['offset'] < 980:
+    params['offset'] += 20
+    print(len(final_result))
+    search_results = client.search('Southampton', **params)
+    for r in search_results.businesses:
+		final_result.append(r.name)
+
+
+print(final_result)
