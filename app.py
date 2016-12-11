@@ -26,15 +26,15 @@ app.config['MONGO_URI'] = 'mongodb://localhost:27017/data_science'
 # connect to MongoDB with the defaults
 mongo = PyMongo(app)
 
-# main page
 @app.route('/')
 def main():
+	"""main page"""
 	return render_template('index.html', titre = "Welcome !")
 
-## API ##
-# get all restaurants
+##### FOOD AGENCY #####
 @app.route('/api/restaurants', methods=['GET'])
 def get_all_restaurants():
+	"""get all restaurants from food agency"""
 	restaurant = mongo.db.restaurants
 
 	restaurants = restaurant.aggregate([
@@ -53,9 +53,9 @@ def get_all_restaurants():
 
 	return jsonify(restaurants)
 
-# get one restaurant using its id
 @app.route('/api/restaurants/<int:id>', methods=['GET'])
 def get_one_restaurants(id):
+	"""get one restaurant from good agency using its id"""
 	restaurant = mongo.db.restaurants
 	
 	restaurants = restaurant.aggregate([
@@ -74,9 +74,68 @@ def get_one_restaurants(id):
 	
 	return jsonify(restaurants)
 
-## Openlayers needs its css file ... ##
+##### YELP #####
+@app.route('/api/yelp_restaurants', methods=['GET'])
+def get_all_yelp_restaurants():
+	"""get all restaurants from yelp"""
+	yelp_restaurant = mongo.db.yelp_restaurants
+
+	yelp_restaurants = yelp_restaurant.aggregate([
+		{'$project' : {
+			'_id': 0,
+			'properties.name' : '$name',
+			'properties.rating' : '$rating',
+			'properties.review_count': '$review_count', 
+  			'geometry.coordinates': ['$longitude', '$latitude'] 
+		}}])
+	
+	yelp_restaurants = list(yelp_restaurants)
+	for r in yelp_restaurants:
+		r['geometry']['type'] = 'Point'
+		r['type'] = 'Feature'
+
+	return jsonify(yelp_restaurants)
+
+
+@app.route('/api/yelp_restaurants/rating', methods=['GET'])
+def get_all_yelp_restaurants_rating():
+	"""get all proccessed rating of all restaurants from yelp"""
+	yelp_restaurant = mongo.db.yelp_restaurants
+
+	star = yelp_restaurant.aggregate([
+	 	{
+	 		'$project': {
+	    		'value': {
+	      			'$subtract': ['$rating', {
+	        			'$mod': ['$rating', 1]
+	        		}]
+	        	}
+	        }
+	    },
+	  	{
+	  		'$group': {
+	    		'_id': '$value',
+	    		'count': {'$sum': 1}
+	    	}
+	    },
+	  	{
+	  		'$project': {
+	    		'_id': 0,
+	    		'label': '$_id',
+	    		'count': '$count'
+	    	}
+	    }
+	])
+
+	return jsonify(list(star))
+
+##### TRIPADVISOR #####
+#coming soon
+
+##### OPENLAYERS #####
 @app.route('/css/lib/openlayers.css')
 def get_openlayers_css():
+	"""Openlayers needs its css file ..."""
 	return redirect(url_for('static', filename='css/lib/openlayers.css'))
 
 
