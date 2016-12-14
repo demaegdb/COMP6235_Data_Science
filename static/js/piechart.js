@@ -106,14 +106,86 @@
                   }
                 })
 
+      this.addTextLabel(collection)
+
      },
 
-     addTextLabel: function() {
-      // function to add text labels
+     addTextLabel: function(collection) {
+
+      var that = this
+
+      this.text = this.svg.select(".labelName")
+                          .selectAll("text")
+                          .data(that.pie(collection), function(d) {
+                            return d.data.label
+                          })
+
+      this.text.enter()
+              .append("text")
+              .attr("dy", ".35em")
+              .text(function(d) {
+                return (d.data.label + ": " + d.value + "%")
+              })
+
+      this.text.transition().duration(1000)
+                            .attrTween("transform", function(d) {
+                              this._current = this._current || d
+                              var interpolate = d3.interpolate(this._current, d)
+                              this._current = interpolate(0)
+                              return function(t) {
+                                var d2 = interpolate(t)
+                                var pos = that.outerArc.centroid(d2)
+                                pos[0] = that.radius * (that.midAngle(d2) < Math.PI ? 1 : -1)
+                                return "translate("+ pos +")";
+                              }
+                            })
+                            .styleTween("text-anchor", function(d) {
+                              this._current = this._current || d
+                              var interpolate = d3.interpolate(this._current, d)
+                              this._current = interpolate(0)
+                              return function(t) {
+                                var d2 = interpolate(t)
+                                return that.midAngle(d2) < Math.PI ? "start":"end";
+                              }
+                            })
+                            .text(function(d) {
+                              return (d.data.label + ": " + d.value + "%" ) 
+                            })
+
+      this.addLines(collection)
+
      },
 
-     addLines: function() {
-      // function to add a line between text label and the donut
+     midAngle: function(d) {
+      return d.startAngle + (d.endAngle - d.startAngle) / 2
+     },
+
+     addLines: function(collection) {
+      
+      var that = this
+
+      this.polyline = this.svg.select(".lines")
+                              .selectAll("polyline")
+                              .data(that.pie(collection), function(d) {
+                                return d.data.label
+                              })
+
+      this.polyline.enter()
+                  .append("polyline")
+
+      this.polyline.transition().duration(1000)
+                                .attrTween("points", function(d){
+                                  this._current = this._current || d
+                                  var interpolate = d3.interpolate(this._current, d)
+                                  this._current = interpolate(0)
+                                  return function(t) {
+                                    var d2 = interpolate(t)
+                                    var pos = that.outerArc.centroid(d2)
+                                    pos[0] = that.radius * 0.95 * (that.midAngle(d2) < Math.PI ? 1 : -1)
+                                    return [that.arc.centroid(d2), that.outerArc.centroid(d2), pos];
+                                  }
+                                })
+     
      }
 
   })
