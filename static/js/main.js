@@ -4,6 +4,7 @@
   var
   myMap,
   myPieChart,
+  myBarChart,
 
   /**
    * Init
@@ -29,11 +30,22 @@
     })
 
     // pie chart
-    myPieChart = new pieChart('pieChart')
+    myPieChart = new pieChart('pieChart', {
+      width: 700,
+      height: 350
+    })
+
+    // bar chart
+    myBarChart = new barChart('barChart', {
+      width: 700,
+      height: 350
+    })
 
     d3.json('http://localhost:5000/api/yelp_restaurants/rating', function(collection) {
       myPieChart.fillPieChart(collection)
+      myBarChart.createBar(collection)
     })
+
   
   }
 

@@ -16,13 +16,13 @@
      * @param opts   options when creating the pie chart
      */
 
-     __construct: function(id) {
+     __construct: function(id, opts) {
 
-      //opts = opts || {}
-      //this.opts = opts
+      opts = opts || {}
+      this.opts = opts
 
-      this.width = 960
-      this.height = 450
+      this.width = this.opts.width
+      this.height = this.opts.height
       this.radius = Math.min(this.width, this.height) / 2
 
       this.colorRange = d3.scale.category20()
@@ -30,7 +30,7 @@
                       .range(this.colorRange.range())
 
       
-      this.svg = d3.select("#piechart")
+      this.svg = d3.select("#" + id)
                     .append('svg')
                     .classed('donut', true)
                     .append('g')
@@ -69,6 +69,7 @@
      },
 
      fillPieChart: function(collection) {
+
       var that = this
       // process the data
       var count = 0
@@ -101,7 +102,6 @@
                   var interpolate  = d3.interpolate(this._current, d)
                   this._current = interpolate(0)
                   return function(t) {
-                    console.log(t)
                     return that.arc(interpolate(t))
                   }
                 })
