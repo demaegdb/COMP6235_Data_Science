@@ -3,6 +3,7 @@
 
   var
   myMap,
+  myPieChart,
 
   /**
    * Init
@@ -25,6 +26,13 @@
           pointRadius: 2,
       },collection)
     
+    })
+
+    // pie chart
+    myPieChart = new pieChart('pieChart')
+
+    d3.json('http://localhost:5000/api/yelp_restaurants/rating', function(collection) {
+      myPieChart.fillPieChart(collection)
     })
   
   }
