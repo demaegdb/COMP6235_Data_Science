@@ -20,12 +20,21 @@
     // Plot
     d3.json('http://localhost:5000/api/restaurants', function (collection) {
       
-      myMap.points({
-          fillColor: "#0000ff",
-          strokeWidth: 1,
-          strokeColor: '#0000ff',
-          pointRadius: 2,
-      },collection)
+      // myMap.points({
+      //     fillColor: "#0000ff",
+      //     strokeWidth: 1,
+      //     strokeColor: '#0000ff',
+      //     pointRadius: 2,
+      // },collection)
+
+      myMap.plot(collection, 
+        {
+          css: function(d) {
+            return 'restaurant'
+          },
+          over: popup.over(tooltip.restaurant),
+          out:  popup.out()
+        })
     
     })
 
@@ -47,6 +56,30 @@
     })
 
   
+  },
+
+  /**
+   * Tooltips
+   */
+  tooltip = {
+    
+    restaurant: function(d) {
+      
+      popup.title.html(function() {
+        return d.properties.name
+      })
+
+      popup.body.html(function() {
+        return '<dl class="dl-horizontal dl-xs">' +
+          '<dt>City</dt>' +
+          '<dd>' + d.properties.city + '</dd>' +
+          '<dt>FHRSID</dt>' +
+          '<dd>' + d.properties.FHRSID + '</dd>' +
+          '</dl>'
+      })
+
+    }
+
   }
 
   /// Start

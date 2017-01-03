@@ -130,7 +130,63 @@ def get_all_yelp_restaurants_rating():
 	return jsonify(list(star))
 
 ##### TRIPADVISOR #####
-#coming soon
+@app.route('/api/tripadvisor_restaurants', methods=['GET'])
+def get_all_tripadvisor_restaurants():
+	"""get all restaurants from tripadvisor"""
+	tripadvisor_restaurant = mongo.db.tripadvisor_restaurants
+
+	tripadvisor_restaurants = tripadvisor_restaurant.aggregate([
+		{'$project' : {
+			'_id': 0,
+			'properties.name' : '$name',
+			'properties.rating' : '$rating',
+			'properties.review_count': '$review_count', 
+  			'geometry.coordinates': ['$location.longtitude', '$location.latitude'] 
+		}}])
+	
+	tripadvisor_restaurants = list(tripadvisor_restaurants)
+	for r in tripadvisor_restaurants:
+		r['geometry']['type'] = 'Point'
+		r['type'] = 'Feature'
+
+	return jsonify(tripadvisor_restaurants)
+
+@app.route('/api/tripadvisor_restaurants/rating', methods=['GET'])
+def get_all_tripadvisor_restaurants_rating():
+	"""get all proccessed rating of all restaurants from tripadvisor"""
+	tripadvisor_restaurant = mongo.db.tripadvisor_restaurants
+
+	star = tripadvisor_restaurant.aggregate([
+	 	{
+	 		'$project': {
+	    		'value': {
+	      			'$subtract': ['$rating', {
+	        			'$mod': ['$rating', 1]
+	        		}]
+	        	}
+	        }
+	    },
+	  	{
+	  		'$group': {
+	    		'_id': '$value',
+	    		'count': {'$sum': 1}
+	    	}
+	    },
+	  	{
+	  		'$project': {
+	    		'_id': 0,
+	    		'label': '$_id',
+	    		'count': '$count'
+	    	}
+	    }
+	])
+
+	return jsonify(list(star))
+
+##### TWITTER #####
+# coming soon
+##### INSTAGRAM #####
+# coming soon
 
 ##### OPENLAYERS #####
 @app.route('/css/lib/openlayers.css')

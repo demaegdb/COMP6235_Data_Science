@@ -21,6 +21,20 @@ h2 {
 	height: 700px;
 }
 
+.restaurant {fill: blue; stroke: blue;}
+
+/***** POPUP *****/
+#popup { position: absolute; right: auto; bottom: auto; /*transition: all 200ms ease-in-out 0ms;*/ }
+#popup .modal-dialog { width: 300px; margin: 20px; min-height: 10px; }
+#popup .modal-content { background: rgba(0, 0, 0, .5); color: white; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); }
+#popup .modal-content .modal-header { padding: 15px 15px 0; }
+#popup .modal-content .modal-body { padding: 10px 15px 15px; }
+#popup .modal-content .dl-horizontal { margin-bottom: 0; }
+#popup .btn-group .btn { background: rgba(255, 255, 255, .8); }
+
+dl.dl-xs dt { width: 100px; }
+dl.dl-xs dd { margin-left: 120px; }
+
 /***** PIE CHART *****/
 .donut {
 	width: 100%;

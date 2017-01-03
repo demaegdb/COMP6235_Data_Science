@@ -79,7 +79,18 @@
     },
 
     /**
-     * Plot restaurants
+     * Toggle visibility
+     * @param  string  name     Layer name
+     * @param  boolean visible  Visible?
+     */
+    toggle: function(name, visible) {
+
+      this.layers[name].setVisibility(visible)
+
+    },
+
+    /**
+     * Plot restaurants using OL
      * @param  object style       Points style
      * @param  array  collection  data
      */
@@ -122,8 +133,96 @@
       
       this.layers["restaurants"].addFeatures(features)
       
-    }
+    },
 
+    /**
+     * Plot restaurants using D3
+     * @param  object style       Points style
+     * @param  array  collection  data
+     */
+    plot: function(collection, opts) {
+      var that = this
+
+      var myData = {}
+      myData.type = "FeatureCollection"
+      myData.features = collection
+
+      // remove null coordinates
+      myData.features = myData.features.filter(function(d) {
+        return d.geometry.coordinates[0] != null
+      })   
+
+      this.bounds = d3.geo.bounds(myData)
+
+      this.div = d3.selectAll('#' + this.layers.over.div.id)
+      this.div.selectAll('svg').remove()
+
+      this.svg  = this.div.append('svg')
+      this.g    = this.svg.append('g')
+      this.path = d3.geo.path().projection(this.project)
+
+      this.g.selectAll('path.circle')
+        .data(myData.features)
+        .enter()
+        .append('path')
+        .attr('d', 'M4 0 L0 10 L8 10 Z')
+        .attr('class', opts.css)
+        .classed('circle', true)
+        .on({
+          mouseover: opts.over,
+          mouseout:  opts.out
+        })
+
+      this.map.events.register('moveend', this.map, this.centerPlot)
+      this.centerPlot()
+
+    },
+
+    /**
+     * Center plot
+     */
+    centerPlot: function() {
+
+      var
+      delta = 30,
+      proj  = this.project,
+      bl    = this.project(this.bounds[0]),
+      tr    = this.project(this.bounds[1]),
+      dx    = delta - bl[0],
+      dy    = delta - tr[1]
+
+      this.svg
+        .attr({
+          width:  tr[0] - bl[0] + 2 * delta,
+          height: bl[1] - tr[1] + 2 * delta
+        })
+        .style({
+          'margin-left': (bl[0] - delta) + 'px',
+          'margin-top':  (tr[1] - delta) + 'px'
+        })
+      this.g.attr('transform', 'translate(' + dx + ',' + dy + ')')
+
+      this.g.selectAll('path.circle')
+        .attr('transform', function(d) {
+          var xy = proj(d.geometry.coordinates)
+          return 'translate(' + (xy[0] - 4) + ',' + (xy[1] - 7) + ') ' 
+        })
+
+    },
+
+    /**
+     * Projection OL (GPS) > d3.js (px)
+     */
+    project: function(x) {
+
+      var
+      gps   = new ol.LonLat(x[0], x[1]).transform('EPSG:4326', 'EPSG:900913'),
+      point = this.map.getViewPortPxFromLonLat(gps)
+
+      return [ point.x, point.y ]
+
+    }
+    
   })
 
   /// Stage

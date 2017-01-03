@@ -14,12 +14,14 @@
     <h1>Foundations of Data Science - Coursework 3</h1>
 
     <div class="row">
+      <div class="col-md-3">
+        <h3>filters</h3>
+      </div>
       <div class="col-md-9">
         <div id="map-box" class="full-height">
           <!-- map container -->
-          <div id="points"></div>
-          <div id="map"></div>
-
+          <!-- <div id="points"></div> -->
+          <div id="map" class="full-height"></div>
           <!-- popup container -->
           <aside id="popup" class="modal">
             <div class="modal-dialog">
@@ -33,11 +35,14 @@
           </aside>
         </div>
       </div>
-      <div class="col-md-3">
+    </div>
+    <div class="row">
+      <div class="col-md-6">
         <div id='pieChart'></div>
+      </div>
+      <div class="col-md-6">
         <div id='barChart'></div>
       </div>
-
     </div>
 
     <div class="row">
@@ -65,6 +70,8 @@
     <script src="{{ url_for('static', filename='js/map.js') }}"></script>
     <script src="{{ url_for('static', filename='js/piechart.js') }}"></script>
     <script src="{{ url_for('static', filename='js/barchart.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='js/toolbox.js') }}"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
   </body>
   
