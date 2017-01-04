@@ -83,6 +83,12 @@
           .attr("y", function(d) { return that.y(d.count) })
           .attr("width", this.x.rangeBand())
           .attr("height", function(d) { return that.height - that.y(d.count) })
+    },
+
+    removeThings: function() {
+
+      this.svg.remove()
+
     }
 
   })

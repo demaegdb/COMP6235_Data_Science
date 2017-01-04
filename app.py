@@ -85,7 +85,8 @@ def get_all_yelp_restaurants():
 			'_id': 0,
 			'properties.name' : '$name',
 			'properties.rating' : '$rating',
-			'properties.review_count': '$review_count', 
+			'properties.review_count': '$review_count',
+			'properties.categories': '$categories',
   			'geometry.coordinates': ['$longitude', '$latitude'] 
 		}}])
 	
@@ -140,7 +141,8 @@ def get_all_tripadvisor_restaurants():
 			'_id': 0,
 			'properties.name' : '$name',
 			'properties.rating' : '$rating',
-			'properties.review_count': '$review_count', 
+			'properties.review_count': '$review_count',
+			'properties.categories': '$category',
   			'geometry.coordinates': ['$location.longtitude', '$location.latitude'] 
 		}}])
 	

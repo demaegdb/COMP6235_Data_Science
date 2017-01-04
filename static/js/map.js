@@ -26,11 +26,6 @@
       // baselayer
       this.baseLayer = new ol.Layer.OSM()
 
-      // other layers
-      this.layers = {
-        over: new ol.Layer.Vector('restaurants')
-      }
-
       this.projs = [
         new ol.Projection('EPSG:900913'),
         new ol.Projection('EPSG:4326')
@@ -59,10 +54,11 @@
         transitionEffect: 'map-resize'
       })
 
-      this.map.addLayers([ this.baseLayer, this.layers.over ])
+      this.map.addLayers([ this.baseLayer ])
       
       this.center(this.opts.center, this.opts.zoom)
 
+      this.createD3Layer()
 
     },
 
@@ -81,11 +77,33 @@
     /**
      * Toggle visibility
      * @param  string  name     Layer name
-     * @param  boolean visible  Visible?
      */
-    toggle: function(name, visible) {
+    toggle: function(name) {
 
-      this.layers[name].setVisibility(visible)
+      var visible = this.layers[name].getVisibility()
+      this.layers[name].setVisibility(!visible)
+
+    },
+
+    /**
+     * create a layer
+     */
+    createD3Layer: function() {
+
+      this.layers = {
+        over: new ol.Layer.Vector('restaurants')
+      }
+
+      this.map.addLayers([ this.layers.over ])
+
+    },
+
+    /**
+     * remove a layer
+     */
+    removeLayer: function() {
+
+      this.map.removeLayer(this.layers.over)
 
     },
 
@@ -150,7 +168,7 @@
       // remove null coordinates
       myData.features = myData.features.filter(function(d) {
         return d.geometry.coordinates[0] != null
-      })   
+      })
 
       this.bounds = d3.geo.bounds(myData)
 

@@ -18,10 +18,12 @@ h2 {
 
 #map {
 	width: 100%;
-	height: 700px;
+	height: 400px;
 }
 
-.restaurant {fill: blue; stroke: blue;}
+.foodAgency {fill: steelblue; stroke: steelblue;}
+.yelp {fill: #F44336; stroke: #F44336;}
+.tripadvisor {fill: #009688; stroke: #009688;}
 
 /***** POPUP *****/
 #popup { position: absolute; right: auto; bottom: auto; /*transition: all 200ms ease-in-out 0ms;*/ }

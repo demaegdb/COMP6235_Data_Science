@@ -62,30 +62,29 @@
                         .innerRadius(this.radius * 0.9)
                         .outerRadius(this.radius * 0.9)
 
-      this.legendSpacing = this.radius * 0.02
 
       this.svg.attr("transform", "translate(" + this.width / 2 + "," + this.height / 2 + ")")
 
      },
 
      fillPieChart: function(collection) {
-
       var that = this
       // process the data
+      var myProccessedCollection = collection
       var count = 0
       for (var i = 0 ; i < collection.length ; i++) {
         count += collection[i].count
       }
 
       for (var j = 0 ; j < collection.length ; j++ ) {
-        collection[j].count = Math.round(collection[j].count * 100 / count)
-        collection[j].label = 'star : ' + collection[j].label 
+        myProccessedCollection[j].count = Math.round(collection[j].count * 100 / count)
+        myProccessedCollection[j].label = 'star : ' + collection[j].label 
       }
 
       // pie slices
       this.slice = this.svg.select('.slices')
                             .selectAll("path.slice")
-                            .data(that.pie(collection), function(d) {
+                            .data(that.pie(myProccessedCollection), function(d) {
                               return d.data.label
                             })
 
@@ -106,7 +105,7 @@
                   }
                 })
 
-      this.addTextLabel(collection)
+      this.addTextLabel(myProccessedCollection)
 
      },
 
@@ -186,6 +185,12 @@
                                   }
                                 })
      
+     },
+
+     removeThings: function() {
+
+      d3.selectAll(".donut").remove()
+
      }
 
   })

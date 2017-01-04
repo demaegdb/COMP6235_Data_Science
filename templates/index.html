@@ -15,8 +15,33 @@
 
     <div class="row">
       <div class="col-md-3">
-        <h3>filters</h3>
+
+        <!--
+        <div class="container">
+          <div class="checkbox">
+            <label><input type="checkbox" value="" checked="checked" id="foodAgency">Food Agency</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="" id="yelp">Yelp</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="" id="tripadvisor">Tripadvisor</label>
+          </div>
+        </div>
+        -->
+        <div class="container">
+          <div class="radio">
+            <label><input type="radio" name="optradio" id="foodAgency" checked="">Food Agency</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="optradio" id="yelp">Yelp</label>
+          </div>
+          <div class="radio disabled">
+            <label><input type="radio" name="optradio" id="tripadvisor">Tripadvisor</label>
+          </div>
+        </div>
       </div>
+
       <div class="col-md-9">
         <div id="map-box" class="full-height">
           <!-- map container -->
@@ -67,6 +92,7 @@
     <script src="{{ url_for('static', filename='js/lib/ol.v2.js') }}"></script>
     
     <script src="{{ url_for('static', filename='js/lib/boot.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/form.js') }}"></script>
     <script src="{{ url_for('static', filename='js/map.js') }}"></script>
     <script src="{{ url_for('static', filename='js/piechart.js') }}"></script>
     <script src="{{ url_for('static', filename='js/barchart.js') }}"></script>

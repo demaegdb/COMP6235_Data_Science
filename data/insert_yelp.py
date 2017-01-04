@@ -27,6 +27,7 @@ def get_yelp_restaurants():
         mydata['name'] = r.name
         mydata['rating'] = r.rating
         mydata['review_count'] = r.review_count
+        mydata['categories'] = r.categories
         mydata['latitude'] = r.location.coordinate.latitude
         mydata['longitude'] = r.location.coordinate.longitude
         final_result.append(mydata)
@@ -40,6 +41,7 @@ def get_yelp_restaurants():
             mydata['name'] = r.name
             mydata['rating'] = r.rating
             mydata['review_count'] = r.review_count
+            mydata['categories'] = r.categories
             mydata['latitude'] = r.location.coordinate.latitude
             mydata['longitude'] = r.location.coordinate.longitude
             final_result.append(mydata)
