@@ -8,8 +8,6 @@
   myFoodAgencyData,
   myYelpData,
   myTripadvisorData,
-  // myYelpDataRating,
-  // myTripadvisorDataRating,
 
   /**
    * Init
@@ -63,6 +61,16 @@
       height: 350
     })
     $('#barChart').hide()
+
+
+    // TEST
+    d3.json('http://localhost:5000/api/instagram_food', function (collection) {
+      console.log(d3.min(collection, function(d) { return d.createdTime}))
+      console.log(d3.max(collection, function(d) { return d.createdTime}))
+    })
+
+
+
 
     // handle event
     var 

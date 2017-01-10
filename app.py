@@ -203,7 +203,75 @@ def get_instagram_food():
 
 
 ##### TWITTER #####
-# coming soon
+@app.route('/api/twitter_vegan', methods=['GET'])
+def get_twitter_vegan():
+	'get all data from twitter_vegan'
+	twitter_vegan = mongo.db.twitter_vegan
+
+	myData = twitter_vegan.aggregate([
+		{'$project' : {
+			'_id': 0,
+			'caption' : '$text',
+			'createdTime' : '$time'
+		}}])
+
+	return jsonify(list(myData))
+
+@app.route('/api/twitter_coffee', methods=['GET'])
+def get_twitter_coffee():
+	'get all data from twitter_coffee'
+	twitter_coffee = mongo.db.twitter_coffee
+
+	myData = twitter_coffee.aggregate([
+		{'$project' : {
+			'_id': 0,
+			'caption' : '$text',
+			'createdTime' : '$time'
+		}}])
+
+	return jsonify(list(myData))
+
+@app.route('/api/twitter_tea', methods=['GET'])
+def get_twitter_tea():
+	'get all data from twitter_tea'
+	twitter_tea = mongo.db.twitter_tea
+
+	myData = twitter_tea.aggregate([
+		{'$project' : {
+			'_id': 0,
+			'caption' : '$text',
+			'createdTime' : '$time'
+		}}])
+
+	return jsonify(list(myData))
+
+@app.route('/api/twitter_burger', methods=['GET'])
+def get_twitter_burger():
+	'get all data from twitter_burger'
+	twitter_burger = mongo.db.twitter_burger
+
+	myData = twitter_burger.aggregate([
+		{'$project' : {
+			'_id': 0,
+			'caption' : '$text',
+			'createdTime' : '$time'
+		}}])
+
+	return jsonify(list(myData))
+
+@app.route('/api/twitter_pizza', methods=['GET'])
+def get_twitter_pizza():
+	'get all data from twitter_pizza'
+	twitter_pizza = mongo.db.twitter_pizza
+
+	myData = twitter_pizza.aggregate([
+		{'$project' : {
+			'_id': 0,
+			'caption' : '$text',
+			'createdTime' : '$time'
+		}}])
+
+	return jsonify(list(myData))
 
 ##### OPENLAYERS #####
 @app.route('/css/lib/openlayers.css')
