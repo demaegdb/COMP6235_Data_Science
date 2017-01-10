@@ -64,18 +64,6 @@
     })
     $('#barChart').hide()
 
-    // d3.json('http://localhost:5000/api/tripadvisor_restaurants/rating', function(collection) {
-
-    //   myTripadvisorDataRating = collection
-
-    // })
-
-    // d3.json('http://localhost:5000/api/yelp_restaurants/rating', function(collection) {
-
-    //   myYelpDataRating = collection
-
-    // })
-
     // handle event
     var 
     foodAgency = document.getElementById('foodAgency'),

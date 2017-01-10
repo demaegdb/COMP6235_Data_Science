@@ -185,9 +185,24 @@ def get_all_tripadvisor_restaurants_rating():
 
 	return jsonify(list(star))
 
-##### TWITTER #####
-# coming soon
+
 ##### INSTAGRAM #####
+@app.route('/api/instagram_food', methods=['GET'])
+def get_instagram_food():
+	'get all data from instagram'
+	instagram_food = mongo.db.instagram_food
+
+	myData = instagram_food.aggregate([
+		{'$project' : {
+			'_id': 0,
+			'caption' : '$caption',
+			'createdTime' : '$createdTime'
+		}}])
+
+	return jsonify(list(myData))
+
+
+##### TWITTER #####
 # coming soon
 
 ##### OPENLAYERS #####
