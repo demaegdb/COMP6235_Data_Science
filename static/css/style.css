@@ -37,6 +37,24 @@ h1 {
 dl.dl-xs dt { width: 100px; }
 dl.dl-xs dd { margin-left: 120px; }
 
+/**** SLIDER ****/
+.yelp_slider .noUi-handle .noUi-connect {
+	background-color: #F44336;
+	border: #F44336;
+}
+
+#tripadvisor_slider .noUi-connect {
+	background: #009688;
+}
+
+.noUi-tooltip {
+	margin-top: 10px;
+}
+
+/***** DROPDOWN *****/
+.form-group {
+	width: 200px;
+}
 /***** PIE CHART *****/
 .donut {
 	width: 100%;

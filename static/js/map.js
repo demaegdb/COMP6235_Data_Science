@@ -24,7 +24,15 @@
       this.opts = opts
 
       // baselayer
-      this.baseLayer = new ol.Layer.OSM()
+      //this.baseLayer = new ol.Layer.OSM()
+
+      // mapbox base layer
+      this.baseLayer = new ol.Layer.XYZ('My Map Layer',
+                                     [ 'https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/${z}/${x}/${y}?access_token=pk.eyJ1IjoienpjMTIxNyIsImEiOiJjaXh0NWU5b3AwMDFuMndvMGRjNHNzN3d4In0.uuYWx_bJbOVFzAGgW20YTg'
+                                     ], {
+                                      sphericalMercator: true,
+                                       wrapDateLine: this.opts.wrap
+                                     })
 
       this.projs = [
         new ol.Projection('EPSG:900913'),
@@ -239,8 +247,38 @@
 
       return [ point.x, point.y ]
 
-    }
-    
+    },
+
+    /**
+     * update layer when the user slides
+     */  
+    updateLayer : function(values) {
+
+      this.g.selectAll("path.circle")
+            .style('display', function(d) {
+              if(d.properties.review_count > parseInt(values[0]) && d.properties.review_count < parseInt(values[1])) {
+                return "inline"
+              } else {
+                return "none"
+              }
+            })
+    },
+
+    /**
+     * update layer when the user select something in dropdown
+     */
+     updateChoice : function(choice) {
+
+      this.g.selectAll("path.circle")
+            .style('display', function(d) {
+              if(d.properties.categories.indexOf(choice) != -1) {
+                return "inline"
+              } else {
+                return "none"
+              }
+            })
+     } 
+  
   })
 
   /// Stage

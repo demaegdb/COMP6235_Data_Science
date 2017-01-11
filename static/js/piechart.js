@@ -68,12 +68,24 @@
      },
 
      fillPieChart: function(collection) {
+
+      console.log(collection)
+      collection = collection.filter(function(d) {
+        return d.label != 0
+      })
+
+      collection = collection.filter(function(d) {
+        return d.label != null
+      })
+      console.log(collection)
+
       var that = this
       // process the data
       var myProccessedCollection = collection
+
       var count = 0
       for (var i = 0 ; i < collection.length ; i++) {
-        count += collection[i].count
+        count += myProccessedCollection[i].count
       }
 
       for (var j = 0 ; j < collection.length ; j++ ) {

@@ -56,6 +56,15 @@
     },
 
     createBar: function(collection) {
+
+      collection = collection.filter(function(d) {
+        return d.label != 0
+      })
+
+      collection = collection.filter(function(d) {
+        return d.label != null
+      })
+
       var that = this
 
       this.x.domain(collection.map(function(d) {

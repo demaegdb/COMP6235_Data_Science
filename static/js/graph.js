@@ -52,10 +52,14 @@
      },
 
      createGraph: function(collection) {
-
       var that = this
 
-      var parseDate = d3.time.format("%B %Y").parse
+      var parseDate
+      if (collection[0].createdTime.split(" ").length === 3) {
+        parseDate = d3.time.format("%d %b %Y").parse
+      } else {
+        parseDate = d3.time.format("%B %Y").parse
+      }
       var color = d3.scale.category10()
 
       var dataLine = d3.svg.line()
@@ -94,14 +98,14 @@
                 .style("fill", function() {
                   return d.color = color(d.key) 
                 })
-                .on("click", function(){
-                  var active   = d.active ? false : true,
-                  newOpacity = active ? 0 : 1 
-                  d3.select("#tag"+d.key.replace(/\s+/g, ''))
-                    .transition().duration(100) 
-                    .style("opacity", newOpacity)
-                d.active = active;
-                })  
+                // .on("click", function(){
+                //   var active   = d.active ? false : true,
+                //   newOpacity = active ? 0 : 1 
+                //   d3.select("#tag"+d.key.replace(/\s+/g, ''))
+                //     .transition().duration(100) 
+                //     .style("opacity", newOpacity)
+                // d.active = active;
+                // })  
             .text(d.key) 
       })
 

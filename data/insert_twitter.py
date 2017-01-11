@@ -31,3 +31,5 @@ insert_data('vegan')
 insert_data('pizza')
 insert_data('burger')
 insert_data('coffee')
+
+insert_data('time_count')

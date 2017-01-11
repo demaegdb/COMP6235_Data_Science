@@ -5,7 +5,9 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ url_for('static', filename='css/lib/nouislider.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- <link href="{{ url_for('static', filename='css/lib/nouislider.min.css') }}" rel="stylesheet" type="text/css" /> -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.9/css/bootstrap-material-design.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.9/css/ripples.css">
     <title>{{ titre }}</title>
   </head>
 
@@ -20,11 +22,35 @@
           <div class="radio">
             <label><input type="radio" name="optradio" id="foodAgency" checked="">Food Agency</label>
           </div>
+          <br>
+          <br>
           <div class="radio">
             <label><input type="radio" name="optradio" id="yelp">Yelp</label>
           </div>
-          <div class="radio disabled">
+          <div id="yelp_slider" class="slider slider-danger"></div>
+          <br>
+          <br>
+          <div class="radio">
             <label><input type="radio" name="optradio" id="tripadvisor">Tripadvisor</label>
+          </div>
+          <div id="tripadvisor_slider" class="slider slider-primary"></div>
+          <br>
+          <div class="form-group" id="tripadvisor_dropdown">
+            <label for="s1">Cuisine</label>
+            <select id="s1" class="form-control">
+              <option value="Italian">Italian</option>
+              <option value="Mediterranean">Mediterranean</option>
+              <option value="British">British</option>
+              <option value="Seafood">Seafood</option>
+              <option value="European">European</option>
+              <option value="Vegetarian Friendly">Vegetarian Friendly</option>
+              <option value="Greek">Greek</option>
+              <option value="Halal">Halal</option>
+              <option value="Asian">Asian</option>
+              <option value="Indian">Indian</option>
+              <option value="French">French</option> 
+              <option value="Vegan Options">Vegan Options</option>
+            </select>
           </div>
         </div>
       </div>
@@ -120,6 +146,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.9/js/material.min.js"></script>
+    <script>$($.material.init())</script>
+    <script>$('.dropdown-toggle').dropdown()</script>
     <script src="{{ url_for('static', filename='js/lib/d3.v3.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/lib/ol.v2.js') }}"></script>
     <script src="{{ url_for('static', filename='js/lib/nouislider.min.js') }}"></script>

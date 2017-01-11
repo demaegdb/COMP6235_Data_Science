@@ -327,6 +327,23 @@ def get_twitter_pizza():
 
 	return jsonify(myData)
 
+@app.route('/api/twitter_time_count', methods=['GET'])
+def get_twitter_time_count():
+	'get data porcessed twitter'
+	twitter_time_count = mongo.db.twitter_time_count
+
+	myData = twitter_time_count.aggregate([
+		{'$project' : {
+			'_id': 0,
+			'foodType' : '$foodType',
+			'createdTime' : '$time',
+			'count' : '$count'
+		}}])
+
+	myData = list(myData)
+
+	return jsonify(myData)
+
 ##### OPENLAYERS #####
 @app.route('/css/lib/openlayers.css')
 def get_openlayers_css():
