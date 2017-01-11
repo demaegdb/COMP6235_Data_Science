@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='css/lib/nouislider.min.css') }}" rel="stylesheet" type="text/css" />
     <title>{{ titre }}</title>
   </head>
 
@@ -14,21 +15,7 @@
     <h1>Foundations of Data Science - Coursework 3</h1>
 
     <div class="row">
-      <div class="col-md-3">
-
-        <!--
-        <div class="container">
-          <div class="checkbox">
-            <label><input type="checkbox" value="" checked="checked" id="foodAgency">Food Agency</label>
-          </div>
-          <div class="checkbox">
-            <label><input type="checkbox" value="" id="yelp">Yelp</label>
-          </div>
-          <div class="checkbox">
-            <label><input type="checkbox" value="" id="tripadvisor">Tripadvisor</label>
-          </div>
-        </div>
-        -->
+      <div class="col-md-2">
         <div class="container">
           <div class="radio">
             <label><input type="radio" name="optradio" id="foodAgency" checked="">Food Agency</label>
@@ -42,7 +29,7 @@
         </div>
       </div>
 
-      <div class="col-md-9">
+      <div class="col-md-10">
         <div id="map-box" class="full-height">
           <!-- map container -->
           <!-- <div id="points"></div> -->
@@ -70,18 +57,63 @@
       </div>
     </div>
 
+    <hr>
     <div class="row">
-      <div class="col-md-12">
-        <div class='twitter'>
-          <br>
-          <br>
-          <h2>twitter</h2>
-        </div>
-        <div class='instagram'>
-          <br>
-          <br>
-          <h2>instagram</h2>
-        </div>
+      <div class="col-md-3">
+          <img src="{{ url_for('static', filename='img/twitter_logo.png') }}" class="pull-left" height="260" width="320">
+      </div>
+      <div class="col-md-4">
+        <table class="table">
+          <thead>
+            <tr><div class="twitter_header">Tweets from Southampton between 31/12/2016 and 10/01/2017</div></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div id="twitter_pizza" class="twitter"></div></td>
+              <td><div id="twitter_burger" class="twitter"></div></td>
+            </tr>
+            <tr>
+              <td><div id="twitter_coffee" class="twitter"></div></td>
+              <td><div id="twitter_tea" class="twitter"></div></td>
+            </tr>
+            <tr>
+              <td><div id="twitter_vegan" class="twitter"></div></td>
+              <td><div id="twitter_something" class="twitter"></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-5">
+        <div id="twitterGraph"></div>
+      </div>
+    </div>
+    <div class="row top-buffer">
+      <div class="col-md-3">
+          <img src="{{ url_for('static', filename='img/instagram_logo.png') }}" class="pull-left" height="300" width="300">
+      </div>
+      <div class="col-md-4">
+        <table class="table">
+          <thead>
+            <tr><div class="instagram_header">Instagram posts from Southampton between 28/09/2015 and 10/01/2017</div></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div id="instagram_pizza" class="instagram"></div></td>
+              <td><div id="instagram_burger" class="instagram"></div></td>
+            </tr>
+            <tr>
+              <td><div id="instagram_coffee" class="instagram"></div></td>
+              <td><div id="instagram_tea" class="instagram"></div></td>
+            </tr>
+            <tr>
+              <td><div id="instagram_vegan" class="instagram"></div></td>
+              <td><div id="instagram_something" class="instagram"></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-5">
+        <div id="instagramGraph"></div>
       </div>
     </div>
 
@@ -90,12 +122,14 @@
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="{{ url_for('static', filename='js/lib/d3.v3.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/lib/ol.v2.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/lib/nouislider.min.js') }}"></script>
     
     <script src="{{ url_for('static', filename='js/lib/boot.js') }}"></script>
     <script src="{{ url_for('static', filename='js/form.js') }}"></script>
     <script src="{{ url_for('static', filename='js/map.js') }}"></script>
     <script src="{{ url_for('static', filename='js/piechart.js') }}"></script>
     <script src="{{ url_for('static', filename='js/barchart.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/graph.js') }}"></script>
 
     <script src="{{ url_for('static', filename='js/toolbox.js') }}"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>

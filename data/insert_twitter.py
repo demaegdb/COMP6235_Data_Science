@@ -23,7 +23,7 @@ def insert_data(typeFood):
 
     # insert all restaurants into mongoDB
 	for r in myTwitterFood:
-		collection.insert(r)
+		collection.insert(r)	
 
 ### main ###
 insert_data('tea')

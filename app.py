@@ -201,6 +201,35 @@ def get_instagram_food():
 
 	return jsonify(list(myData))
 
+@app.route('/api/instagram_food/total_count', methods=['GET'])
+def get_instagram_food_total_count():
+	'get all total count from instagram'
+	instagram_total_count = mongo.db.instagram_total_count
+
+	myData = instagram_total_count.aggregate([
+		{'$project' : {
+			'_id': 0,
+			'foodType' : '$foodType',
+			'count' : '$count'
+		}}])
+
+	return jsonify(list(myData))
+
+@app.route('/api/instagram_food/time_count', methods=['GET'])
+def get_instagram_food_time_count():
+	'get time count from instagram'
+	instagram_time_count = mongo.db.instagram_time_count
+
+	myData = instagram_time_count.aggregate([
+		{'$project' : {
+			'_id': 0,
+			'foodType' : '$foodType',
+			'count' : '$count',
+			'createdTime' : '$time'
+		}}])
+
+	return jsonify(list(myData))
+
 
 ##### TWITTER #####
 @app.route('/api/twitter_vegan', methods=['GET'])
@@ -215,7 +244,12 @@ def get_twitter_vegan():
 			'createdTime' : '$time'
 		}}])
 
-	return jsonify(list(myData))
+	myData = list(myData)
+	
+	for r in myData:
+		r['foodType'] = "vegan"
+
+	return jsonify(myData)
 
 @app.route('/api/twitter_coffee', methods=['GET'])
 def get_twitter_coffee():
@@ -228,8 +262,13 @@ def get_twitter_coffee():
 			'caption' : '$text',
 			'createdTime' : '$time'
 		}}])
+	
+	myData = list(myData)
+	
+	for r in myData:
+		r['foodType'] = "coffee"
 
-	return jsonify(list(myData))
+	return jsonify(myData)
 
 @app.route('/api/twitter_tea', methods=['GET'])
 def get_twitter_tea():
@@ -243,7 +282,12 @@ def get_twitter_tea():
 			'createdTime' : '$time'
 		}}])
 
-	return jsonify(list(myData))
+	myData = list(myData)
+	
+	for r in myData:
+		r['foodType'] = "tea"
+
+	return jsonify(myData)
 
 @app.route('/api/twitter_burger', methods=['GET'])
 def get_twitter_burger():
@@ -257,7 +301,12 @@ def get_twitter_burger():
 			'createdTime' : '$time'
 		}}])
 
-	return jsonify(list(myData))
+	myData = list(myData)
+	
+	for r in myData:
+		r['foodType'] = "burger"
+
+	return jsonify(myData)
 
 @app.route('/api/twitter_pizza', methods=['GET'])
 def get_twitter_pizza():
@@ -271,7 +320,12 @@ def get_twitter_pizza():
 			'createdTime' : '$time'
 		}}])
 
-	return jsonify(list(myData))
+	myData = list(myData)
+	
+	for r in myData:
+		r['foodType'] = "pizza"
+
+	return jsonify(myData)
 
 ##### OPENLAYERS #####
 @app.route('/css/lib/openlayers.css')
