@@ -28,11 +28,11 @@
 
     // slider
     var tripadvisor_slider = document.getElementById('tripadvisor_slider')
-    tripadvisor_slider.style.width = '200px'
+    tripadvisor_slider.style.width = '16%'
     $('#tripadvisor_slider').hide()
 
     var yelp_slider = document.getElementById('yelp_slider')
-    yelp_slider.style.width = '200px'
+    yelp_slider.style.width = '16%'
     $('#yelp_slider').hide()
 
     // dropdown

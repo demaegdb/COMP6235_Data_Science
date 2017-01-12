@@ -44,8 +44,9 @@
       this.svg = d3.select("#" + id)
                   .append("svg")
                   .classed("graph", true)
-                  .attr("width", this.opts.width)
-                  .attr("height", this.opts.height)
+                  // .attr("width", this.opts.width)
+                  // .attr("height", this.opts.height)
+                  .attr("viewBox", "0 0 " + this.opts.width + " " + this.opts.height)
                 .append("g")
                     .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")")
 

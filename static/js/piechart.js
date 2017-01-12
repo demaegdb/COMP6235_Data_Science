@@ -33,6 +33,7 @@
       this.svg = d3.select("#" + id)
                     .append('svg')
                     .classed('donut', true)
+                    .attr("viewBox", "0 0 " + this.opts.width + " " + this.opts.height)
                     .append('g')
 
 

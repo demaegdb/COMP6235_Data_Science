@@ -47,8 +47,9 @@
       this.svg = d3.select("#" + id)
                   .append("svg")
                   .classed("barchart", true)
-                  .attr("width", this.opts.width)
-                  .attr("height", this.opts.height)
+                  // .attr("width", this.opts.width)
+                  // .attr("height", this.opts.height)
+                  .attr("viewBox", "0 0 " + this.opts.width + " " + this.opts.height)
                 
       this.g = this.svg.append("g")
                       .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")")
