@@ -278,50 +278,6 @@
   },
 
   /**
-   * process twitter data
-   */
-
-  // processTwitterData = function(collection) {
-
-  //   var tmpCollection = collection
-
-  //   for( var i = 0 ; i < tmpCollection.length ; i++) {
-  //     var tmp = tmpCollection[i].createdTime.split(" ")
-  //     tmp.splice(3, 1)
-  //     tmp.splice(3, 1)
-  //     tmp.splice(0, 1)
-  //     tmpCollection[i].createdTime = tmp.join(" ")
-  //   }
-
-  //   var result = [{"createdTime": tmpCollection[0].createdTime, "count": 1, "foodType": tmpCollection[0].foodType}]
-
-  //   outer_loop:
-  //   for(var i = 1 ; i < collection.length ; i++) {
-  //     for(var j = 0 ; j < result.length ; j++) {
-  //       if (result[j].createdTime === tmpCollection[i].createdTime) {
-  //         result[j].count ++
-  //         continue outer_loop
-  //       }
-  //     }
-  //     result.push({
-  //       createdTime: tmpCollection[i].createdTime,
-  //       count: 1,
-  //       foodType: tmpCollection[i].foodType
-  //     })
-  //   }
-
-  //   return result
-
-  // },
-
-  // updateTwitterTimeCount = function(data) {
-  //   for(var i = 0 ; i < data.length ; i++) {
-  //     myTwitterProcessedData.push(data[i])
-  //   }
-  //   data = []
-  // },
-
-  /**
    * Tooltips
    */
   tooltip = {

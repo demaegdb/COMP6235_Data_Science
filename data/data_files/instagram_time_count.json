@@ -1,0 +1,407 @@
+[
+    {
+        "count": 230, 
+        "foodType": "tea", 
+        "time": "January 2017"
+    }, 
+    {
+        "count": 56, 
+        "foodType": "coffee", 
+        "time": "January 2017"
+    }, 
+    {
+        "count": 9, 
+        "foodType": "pizza", 
+        "time": "January 2017"
+    }, 
+    {
+        "count": 14, 
+        "foodType": "vegan", 
+        "time": "January 2017"
+    }, 
+    {
+        "count": 19, 
+        "foodType": "burger", 
+        "time": "January 2017"
+    }, 
+    {
+        "count": 72, 
+        "foodType": "burger", 
+        "time": "December 2016"
+    }, 
+    {
+        "count": 510, 
+        "foodType": "tea", 
+        "time": "December 2016"
+    }, 
+    {
+        "count": 39, 
+        "foodType": "pizza", 
+        "time": "December 2016"
+    }, 
+    {
+        "count": 164, 
+        "foodType": "coffee", 
+        "time": "December 2016"
+    }, 
+    {
+        "count": 24, 
+        "foodType": "vegan", 
+        "time": "December 2016"
+    }, 
+    {
+        "count": 453, 
+        "foodType": "tea", 
+        "time": "November 2016"
+    }, 
+    {
+        "count": 149, 
+        "foodType": "coffee", 
+        "time": "November 2016"
+    }, 
+    {
+        "count": 63, 
+        "foodType": "burger", 
+        "time": "November 2016"
+    }, 
+    {
+        "count": 20, 
+        "foodType": "pizza", 
+        "time": "November 2016"
+    }, 
+    {
+        "count": 25, 
+        "foodType": "vegan", 
+        "time": "November 2016"
+    }, 
+    {
+        "count": 422, 
+        "foodType": "tea", 
+        "time": "October 2016"
+    }, 
+    {
+        "count": 135, 
+        "foodType": "coffee", 
+        "time": "October 2016"
+    }, 
+    {
+        "count": 30, 
+        "foodType": "vegan", 
+        "time": "October 2016"
+    }, 
+    {
+        "count": 55, 
+        "foodType": "burger", 
+        "time": "October 2016"
+    }, 
+    {
+        "count": 17, 
+        "foodType": "pizza", 
+        "time": "October 2016"
+    }, 
+    {
+        "count": 253, 
+        "foodType": "tea", 
+        "time": "September 2016"
+    }, 
+    {
+        "count": 33, 
+        "foodType": "burger", 
+        "time": "September 2016"
+    }, 
+    {
+        "count": 26, 
+        "foodType": "pizza", 
+        "time": "September 2016"
+    }, 
+    {
+        "count": 91, 
+        "foodType": "coffee", 
+        "time": "September 2016"
+    }, 
+    {
+        "count": 22, 
+        "foodType": "vegan", 
+        "time": "September 2016"
+    }, 
+    {
+        "count": 339, 
+        "foodType": "tea", 
+        "time": "August 2016"
+    }, 
+    {
+        "count": 22, 
+        "foodType": "pizza", 
+        "time": "August 2016"
+    }, 
+    {
+        "count": 37, 
+        "foodType": "burger", 
+        "time": "August 2016"
+    }, 
+    {
+        "count": 82, 
+        "foodType": "coffee", 
+        "time": "August 2016"
+    }, 
+    {
+        "count": 29, 
+        "foodType": "vegan", 
+        "time": "August 2016"
+    }, 
+    {
+        "count": 239, 
+        "foodType": "tea", 
+        "time": "July 2016"
+    }, 
+    {
+        "count": 78, 
+        "foodType": "coffee", 
+        "time": "July 2016"
+    }, 
+    {
+        "count": 38, 
+        "foodType": "burger", 
+        "time": "July 2016"
+    }, 
+    {
+        "count": 35, 
+        "foodType": "vegan", 
+        "time": "July 2016"
+    }, 
+    {
+        "count": 19, 
+        "foodType": "pizza", 
+        "time": "July 2016"
+    }, 
+    {
+        "count": 254, 
+        "foodType": "tea", 
+        "time": "June 2016"
+    }, 
+    {
+        "count": 23, 
+        "foodType": "vegan", 
+        "time": "June 2016"
+    }, 
+    {
+        "count": 32, 
+        "foodType": "burger", 
+        "time": "June 2016"
+    }, 
+    {
+        "count": 17, 
+        "foodType": "pizza", 
+        "time": "June 2016"
+    }, 
+    {
+        "count": 79, 
+        "foodType": "coffee", 
+        "time": "June 2016"
+    }, 
+    {
+        "count": 30, 
+        "foodType": "vegan", 
+        "time": "May 2016"
+    }, 
+    {
+        "count": 87, 
+        "foodType": "coffee", 
+        "time": "May 2016"
+    }, 
+    {
+        "count": 251, 
+        "foodType": "tea", 
+        "time": "May 2016"
+    }, 
+    {
+        "count": 29, 
+        "foodType": "burger", 
+        "time": "May 2016"
+    }, 
+    {
+        "count": 14, 
+        "foodType": "pizza", 
+        "time": "May 2016"
+    }, 
+    {
+        "count": 259, 
+        "foodType": "tea", 
+        "time": "April 2016"
+    }, 
+    {
+        "count": 17, 
+        "foodType": "pizza", 
+        "time": "April 2016"
+    }, 
+    {
+        "count": 35, 
+        "foodType": "burger", 
+        "time": "April 2016"
+    }, 
+    {
+        "count": 65, 
+        "foodType": "coffee", 
+        "time": "April 2016"
+    }, 
+    {
+        "count": 23, 
+        "foodType": "vegan", 
+        "time": "April 2016"
+    }, 
+    {
+        "count": 311, 
+        "foodType": "tea", 
+        "time": "March 2016"
+    }, 
+    {
+        "count": 107, 
+        "foodType": "coffee", 
+        "time": "March 2016"
+    }, 
+    {
+        "count": 25, 
+        "foodType": "vegan", 
+        "time": "March 2016"
+    }, 
+    {
+        "count": 40, 
+        "foodType": "burger", 
+        "time": "March 2016"
+    }, 
+    {
+        "count": 18, 
+        "foodType": "pizza", 
+        "time": "March 2016"
+    }, 
+    {
+        "count": 320, 
+        "foodType": "tea", 
+        "time": "February 2016"
+    }, 
+    {
+        "count": 37, 
+        "foodType": "pizza", 
+        "time": "February 2016"
+    }, 
+    {
+        "count": 49, 
+        "foodType": "burger", 
+        "time": "February 2016"
+    }, 
+    {
+        "count": 83, 
+        "foodType": "coffee", 
+        "time": "February 2016"
+    }, 
+    {
+        "count": 14, 
+        "foodType": "vegan", 
+        "time": "February 2016"
+    }, 
+    {
+        "count": 24, 
+        "foodType": "burger", 
+        "time": "January 2016"
+    }, 
+    {
+        "count": 216, 
+        "foodType": "tea", 
+        "time": "January 2016"
+    }, 
+    {
+        "count": 12, 
+        "foodType": "pizza", 
+        "time": "January 2016"
+    }, 
+    {
+        "count": 64, 
+        "foodType": "coffee", 
+        "time": "January 2016"
+    }, 
+    {
+        "count": 15, 
+        "foodType": "vegan", 
+        "time": "January 2016"
+    }, 
+    {
+        "count": 201, 
+        "foodType": "tea", 
+        "time": "December 2015"
+    }, 
+    {
+        "count": 68, 
+        "foodType": "coffee", 
+        "time": "December 2015"
+    }, 
+    {
+        "count": 17, 
+        "foodType": "pizza", 
+        "time": "December 2015"
+    }, 
+    {
+        "count": 22, 
+        "foodType": "burger", 
+        "time": "December 2015"
+    }, 
+    {
+        "count": 15, 
+        "foodType": "vegan", 
+        "time": "December 2015"
+    }, 
+    {
+        "count": 179, 
+        "foodType": "tea", 
+        "time": "November 2015"
+    }, 
+    {
+        "count": 20, 
+        "foodType": "vegan", 
+        "time": "November 2015"
+    }, 
+    {
+        "count": 61, 
+        "foodType": "coffee", 
+        "time": "November 2015"
+    }, 
+    {
+        "count": 20, 
+        "foodType": "burger", 
+        "time": "November 2015"
+    }, 
+    {
+        "count": 27, 
+        "foodType": "pizza", 
+        "time": "November 2015"
+    }, 
+    {
+        "count": 140, 
+        "foodType": "tea", 
+        "time": "October 2015"
+    }, 
+    {
+        "count": 41, 
+        "foodType": "coffee", 
+        "time": "October 2015"
+    }, 
+    {
+        "count": 32, 
+        "foodType": "burger", 
+        "time": "October 2015"
+    }, 
+    {
+        "count": 10, 
+        "foodType": "pizza", 
+        "time": "October 2015"
+    }, 
+    {
+        "count": 5, 
+        "foodType": "vegan", 
+        "time": "October 2015"
+    }, 
+    {
+        "count": 1, 
+        "foodType": "coffee", 
+        "time": "September 2015"
+    }
+]

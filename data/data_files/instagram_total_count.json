@@ -1,0 +1,22 @@
+[
+    {
+        "count": 4577, 
+        "foodType": "tea"
+    }, 
+    {
+        "count": 1411, 
+        "foodType": "coffee"
+    }, 
+    {
+        "count": 321, 
+        "foodType": "pizza"
+    }, 
+    {
+        "count": 349, 
+        "foodType": "vegan"
+    }, 
+    {
+        "count": 600, 
+        "foodType": "burger"
+    }
+]
