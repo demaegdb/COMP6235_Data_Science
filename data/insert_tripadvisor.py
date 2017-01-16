@@ -3,7 +3,7 @@ from pymongo import MongoClient
 
 # import json file
 def import_json(name):
-	with open('data_files' + name) as mydata:
+	with open('data_files/' + name) as mydata:
 		d = json.load(mydata)
 		return d
 
