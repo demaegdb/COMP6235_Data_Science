@@ -7,7 +7,7 @@ These two parts combined give an overview of what is already existing (competito
 ## 2 - Setting up the application
 * install mongoDB
 * install the following python packages : flask; Flask-PyMongo; requests; yelp
-* create a file named "config_secret.json", copy/paste the following code (with your own key & token) and place it into the "/data" directory.
+* create a file named "config_secret.json", copy/paste the following code (with your own yelp API key & token) and place it into the "/data" directory.
 
 {
     "consumer_key": "YOUR_CONSUMER_KEY",
